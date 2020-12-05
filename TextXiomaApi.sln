@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextXiomaApi", "TextXiomaApi\TextXiomaApi.csproj", "{06C39D7C-FE10-45D2-9AA2-71312148E0EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{599C2989-065D-4DDC-9B19-1D9ED63171C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06C39D7C-FE10-45D2-9AA2-71312148E0EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C39D7C-FE10-45D2-9AA2-71312148E0EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C39D7C-FE10-45D2-9AA2-71312148E0EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C39D7C-FE10-45D2-9AA2-71312148E0EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{599C2989-065D-4DDC-9B19-1D9ED63171C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{599C2989-065D-4DDC-9B19-1D9ED63171C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{599C2989-065D-4DDC-9B19-1D9ED63171C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{599C2989-065D-4DDC-9B19-1D9ED63171C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
