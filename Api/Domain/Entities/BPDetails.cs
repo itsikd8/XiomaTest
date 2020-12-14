@@ -11,11 +11,11 @@ namespace Api.Domain.Entities
         public string CardName { get; set; }
         public string CardType { get; set; }
         public int GroupCode { get; set; }
-        public object Address { get; set; }
-        public object ZipCode { get; set; }
-        public object MailAddress { get; set; }
-        public object MailZipCode { get; set; }
-        public object Phone1 { get; set; }
-        public object Phone2 { get; set; }
+        public string Address { get; set; }
+        public string ZipCode { get; set; }
+        public string MailAddress { get; set; }
+        public string MailZipCode { get; set; }
+        public string Phone1 { get; set; }
+        public string Phone2 { get; set; }
     }
 }

@@ -21,36 +21,46 @@ namespace Api.Controllers
             _hanaSerivce = hanaSerivce;
         }
         // GET: api/<BusinessPartnersController>
-        [HttpGet]
-        public IEnumerable<BusinessPartnersDto> Get()
+        [HttpGet("GetAll")]
+        public async Task<BusinessPartnersDto> GetAsync()
         {
-            var res = _hanaSerivce.GetBusinessPartners(); 
-            return null;
+            var res = await _hanaSerivce.GetBusinessPartners();          
+            return res;
         }
 
         // GET api/<BusinessPartnersController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<BPDetails> Get(string id)
         {
-            return "value";
+            var res = await _hanaSerivce.GetBusinessPartnersById(id);
+            return res;
         }
 
         // POST api/<BusinessPartnersController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("createBP")]
+        public async Task<bool> Post([FromBody]BPDetails value)
         {
+            var res = await _hanaSerivce.CreateBusinessPartners(value);
+            return res;
+
         }
 
-        // PUT api/<BusinessPartnersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PATCH api/<BusinessPartnersController>/5
+        [HttpPatch("{id}")]
+        public async Task<bool> Patch([FromBody]BPDetails value)
         {
+            var res = await _hanaSerivce.UpdateBusinessPartners(value);
+
+            return res;
+
         }
 
         // DELETE api/<BusinessPartnersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<bool> Delete(string id)
         {
+            var res = await _hanaSerivce.DeleteBusinessPartners(id);
+            return res;
         }
     }
 }

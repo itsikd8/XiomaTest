@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -19,7 +20,7 @@ namespace TextXiomaApi
                 CompanyDB = "SBODEMOUS"
             };
 
-            await ProcessRepositories(user);
+            await ProcessRepositories1(user);
 
         }
 
@@ -48,6 +49,35 @@ namespace TextXiomaApi
             //HttpResponseMessage response = await client.PostAsync(
             //"https://35.156.189.63:50000/b1s/v1/Login", user);
             //response.EnsureSuccessStatusCode();
+        }
+
+        private static async Task ProcessRepositories1(LoginUser user)
+        {
+
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+            
+            var cookieContainer  = new System.Net.CookieContainer();
+            clientHandler.CookieContainer = cookieContainer;
+            
+            using (var httpClient = new HttpClient(clientHandler))
+            {
+
+                var options = new JsonSerializerOptions
+                {
+
+                };
+
+                cookieContainer.Add(new Uri("https://35.156.189.63:50000/"), new Cookie("CompanyDB", "SBODEMOUS"));
+                cookieContainer.Add(new Uri("https://35.156.189.63:50000/"), new Cookie("B1SESSION", "da007e8e-37f8-11eb-8000-025c0989ab50"));
+                //StringContent content = new StringContent(JsonSerializer.Serialize(user, options), Encoding.UTF8, "application/json");
+
+                var response = await httpClient.GetAsync("https://35.156.189.63:50000/b1s/v1/BusinessPartners");
+
+                string apiResponse = await response.Content.ReadAsStringAsync();
+            }
+
+            
         }
     }
 

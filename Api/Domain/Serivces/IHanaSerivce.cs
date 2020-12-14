@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Api.Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Domain.Serivces
 {
@@ -9,5 +10,18 @@ namespace Api.Domain.Serivces
         Task<Session> PostLogin(LoginDetails loginDetails);
 
         Task<BusinessPartnersDto> GetBusinessPartners();
+
+        Task<BPDetails> GetBusinessPartnersById(string id);
+
+
+        Task<bool> CreateBusinessPartners(BPDetails bp);
+
+
+        Task<bool> UpdateBusinessPartners(BPDetails bp);
+
+
+        Task<bool>  DeleteBusinessPartners(string id);
+
+
     }
 }
